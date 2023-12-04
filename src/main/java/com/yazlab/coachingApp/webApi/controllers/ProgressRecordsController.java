@@ -17,7 +17,7 @@ import java.util.List;
 public class ProgressRecordsController {
     private ProgressRecordService progressRecordService;
 
-    @GetMapping("getAll")
+    @GetMapping("/{id}")
     public List<GetAllProgressRecordsResponse> getAll(int userId){
         return progressRecordService.getAll(userId);
     }
