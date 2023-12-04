@@ -24,25 +24,27 @@ public class Program {
     @JoinColumn(name = "user_id", referencedColumnName = "user_id", nullable = false)
     private User user;
 
-    @Column(name = "exercise_name", nullable = false)
-    private String exerciseName;
+    @Column(name = "exercise", nullable = false)
+    private String exercise;
 
-    @Column(name = "goals", nullable = false)
-    private String goals;
-
-    @Column(name = "sets", nullable = false)
-    private int sets;
-
-    @Column(name = "repetitions", nullable = false)
-    private int repetitions;
-
-    @Column(name = "video_guide_url")
-    private String videoGuideUrl;
+    @Column(name = "goal", nullable = false)
+    private String goal;
 
     @Column(name = "start_date", nullable = false)
     private Date startDate;
 
     @Column(name = "duration", nullable = false)
-    private int duration;
+    private String duration;
 
+    @Column(name = "sets", nullable = false)
+    private int sets;
+
+    @Column(name = "reps", nullable = false)
+    private int reps;
+
+    @Column(name = "video_guide_url")
+    private String videoGuideUrl;
+
+    @Column(name = "is_active")
+    private boolean isActive;
 }

@@ -10,6 +10,8 @@ import com.yazlab.coachingApp.dataAccess.abstracts.CoachRepository;
 import com.yazlab.coachingApp.dataAccess.abstracts.UserRepository;
 import com.yazlab.coachingApp.entities.concretes.Coach;
 import com.yazlab.coachingApp.entities.concretes.User;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -43,12 +45,22 @@ public class UserManager implements UserService {
         return response;
     }
 
-    @Override
+
     public void add(CreateUserRequest createUserRequest) {
-        User user = modelMapperService.forRequest().map(createUserRequest, User.class);
+        User user = new User();
+        user.setFirstName(createUserRequest.getFirstName());
+        user.setLastName(createUserRequest.getLastName());
+        user.setBirthDate(createUserRequest.getBirthDate());
+        user.setGender(createUserRequest.getGender());
+        user.setEmail(createUserRequest.getEmail());
+        user.setPassword(createUserRequest.getPassword());
+        user.setPhoneNumber(createUserRequest.getPhoneNumber());
+        user.setActive(createUserRequest.isActive());
+        user.setProfilePicture(createUserRequest.getProfilePicture());
+        user.setGoal(createUserRequest.getGoal());
 
         Coach coach = coachRepository.findById(createUserRequest.getCoachId()).orElseThrow();
-        user.setCoachId(coach);
+        user.setCoach(coach);
 
         userRepository.save(user);
     }

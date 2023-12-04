@@ -15,12 +15,13 @@ import java.util.Date;
 @NoArgsConstructor
 public class GetAllProgramsResponse {
     private int programId;
-    private User user;
-    private String exerciseName;
-    private String goals;
+    private int userId;
+    private String exercise;
+    private String goal;
     private int sets;
-    private int repetitions;
+    private int reps;
     private String videoGuideUrl;
     private Date startDate;
-    private int duration;
+    private String duration;
+    private boolean isActive;
 }

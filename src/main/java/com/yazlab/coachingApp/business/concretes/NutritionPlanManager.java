@@ -7,10 +7,13 @@ import com.yazlab.coachingApp.business.responses.nutritionPlan.GetAllNutritionPl
 import com.yazlab.coachingApp.business.responses.nutritionPlan.GetByIdNutritionPlanResponse;
 import com.yazlab.coachingApp.core.utilities.mappers.ModelMapperService;
 import com.yazlab.coachingApp.dataAccess.abstracts.NutritionPlanRepository;
+import com.yazlab.coachingApp.dataAccess.abstracts.UserRepository;
 import com.yazlab.coachingApp.entities.concretes.NutritionPlan;
+import com.yazlab.coachingApp.entities.concretes.User;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -19,20 +22,23 @@ import java.util.stream.Collectors;
 public class NutritionPlanManager implements NutritionPlanService {
     private NutritionPlanRepository nutritionPlanRepository;
     private ModelMapperService modelMapperService;
-
+    private final UserRepository userRepository;
     @Override
-    public List<GetAllNutritionPlansResponse> getAll() {
-        List<NutritionPlan> nutritionPlans = nutritionPlanRepository.findAll();
+    public List<GetAllNutritionPlansResponse> getAll(int userId) {
+        List<NutritionPlan> nutritionPlans = nutritionPlanRepository.findByUser_UserId(userId);
 
-        List<GetAllNutritionPlansResponse> plansResponse = nutritionPlans.stream()
-                .map(plan -> modelMapperService.forResponse()
-                        .map(plan, GetAllNutritionPlansResponse.class))
-                .collect(Collectors.toList());
-
-        return plansResponse;
+        if(nutritionPlans != null){
+            List<GetAllNutritionPlansResponse> plansResponse = nutritionPlans.stream()
+                    .map(plan -> modelMapperService.forResponse()
+                            .map(plan, GetAllNutritionPlansResponse.class))
+                    .collect(Collectors.toList());
+            return plansResponse;
+        } else {
+            return Collections.emptyList(); // veya başka bir uygun değer
+        }
     }
 
-    @Override
+    /*@Override
     public GetByIdNutritionPlanResponse getById(int id) {
         NutritionPlan nutritionPlan = nutritionPlanRepository.findById(id).orElseThrow();
 
@@ -40,12 +46,21 @@ public class NutritionPlanManager implements NutritionPlanService {
                 .map(nutritionPlan, GetByIdNutritionPlanResponse.class);
 
         return response;
-    }
+    }*/
 
     @Override
     public void add(CreateNutritionPlanRequest createNutritionPlanRequest) {
-        NutritionPlan nutritionPlan = modelMapperService.forRequest()
-                .map(createNutritionPlanRequest, NutritionPlan.class);
+
+        NutritionPlan nutritionPlan = new NutritionPlan();
+
+        nutritionPlan.setMeal(createNutritionPlanRequest.getMeal());
+        nutritionPlan.setMealDay(createNutritionPlanRequest.getMealDay());
+        nutritionPlan.setCalorie(createNutritionPlanRequest.getCalorie());
+        nutritionPlan.setGoal(createNutritionPlanRequest.getGoal());
+        nutritionPlan.setActive(createNutritionPlanRequest.isActive());
+
+        User user = userRepository.findById(createNutritionPlanRequest.getUserId()).orElseThrow();
+        nutritionPlan.setUser(user);
 
         nutritionPlanRepository.save(nutritionPlan);
     }

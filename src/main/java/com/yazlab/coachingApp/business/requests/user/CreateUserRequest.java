@@ -1,5 +1,6 @@
 package com.yazlab.coachingApp.business.requests.user;
 
+import com.yazlab.coachingApp.entities.concretes.Coach;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,8 +19,10 @@ public class CreateUserRequest {
     private String email;
     private String password;
     private String phoneNumber;
-    private boolean isActive;
+    private boolean isActive = true;
     private int coachId;
+   // private Coach coach;
     private String messages;
     private String profilePicture;
+    private String goal;
 }

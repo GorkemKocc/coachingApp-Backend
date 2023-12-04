@@ -19,4 +19,6 @@ public class GetByIdProgressRecordResponse {
     private BigDecimal muscleMass;
     private BigDecimal bodyMassIndex;
     private Date recordDate;
+    private boolean isActive;
+
 }

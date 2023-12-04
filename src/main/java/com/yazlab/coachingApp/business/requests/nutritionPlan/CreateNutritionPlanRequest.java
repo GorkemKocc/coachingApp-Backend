@@ -9,9 +9,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CreateNutritionPlanRequest {
-
     private int userId;
-    private String goals;
-    private String dailyMeals;
-    private int calorieTarget;
+    private String goal;
+    private String meal;
+    private String mealDay;
+    private int calorie;
+    private boolean isActive = true;
 }

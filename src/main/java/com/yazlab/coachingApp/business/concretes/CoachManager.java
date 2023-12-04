@@ -58,13 +58,12 @@ public class CoachManager implements CoachService {
     @Override
     public List<GetAllClientsResponse> getAllClients(int coachId) {
 
-        List<User> users = userRepository.findByCoachId_CoachId(coachId);
+        List<User> users = userRepository.findByCoach_CoachId(coachId);
         List<GetAllClientsResponse> usersResponse = users.stream()
                 .map(user -> modelMapperService.forResponse()
                         .map(user, GetAllClientsResponse.class)).collect(Collectors.toList());
 
         return usersResponse;
     }
-
 
 }

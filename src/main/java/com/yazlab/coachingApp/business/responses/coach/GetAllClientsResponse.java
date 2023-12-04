@@ -14,32 +14,16 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class GetAllClientsResponse {
-   /* private int userId;
+
+    private int userId;
     private String firstName;
     private String lastName;
     private Date birthDate;
     private String gender;
     private String email;
-    private String password;
     private String phoneNumber;
-    //  private String messages;
-    private byte[] profilePicture;
-    private int coachId;
-    private boolean isActive;
-   // private Coach coach;
-    private NutritionPlan nutritionPlan;
-    private ProgressRecord progressRecord;
-    private Program program;*/
-   private int userId;
-    private String firstName;
-    private String lastName;
-    private Date birthDate;
-    private String gender;
-    private String email;
-    private String password;
-    private String phoneNumber;
+    private String goal;
     //  private String messages;
     private String profilePicture;
-    private int coachId;
     private boolean isActive;
 }

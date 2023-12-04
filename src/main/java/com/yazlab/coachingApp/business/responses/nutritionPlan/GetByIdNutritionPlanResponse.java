@@ -9,8 +9,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class GetByIdNutritionPlanResponse {private int planId;
-    private User user;
-    private String goals;
-    private String dailyMeals;
-    private int calorieTarget;
+
+    private int userId;
+    private String goal;
+    private String meal;
+    private String mealDay;
+    private int calorie;
+    private boolean isActive;
 }

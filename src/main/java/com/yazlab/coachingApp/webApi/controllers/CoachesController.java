@@ -37,7 +37,7 @@ public class CoachesController {
     {
         this.coachService.update(updateCoachRequest);
     }
-    @GetMapping("getAllClients")
+    @GetMapping("getAllClients/{coachId}")
     public List<GetAllClientsResponse> getAllClientsResponses(@PathVariable int coachId){
         return coachService.getAllClients(coachId);
     }

@@ -25,4 +25,5 @@ public class GetAllUsersResponse {
     //private int coachId;
     private boolean isActive;
     private Coach coach;
+    private String goal;
 }

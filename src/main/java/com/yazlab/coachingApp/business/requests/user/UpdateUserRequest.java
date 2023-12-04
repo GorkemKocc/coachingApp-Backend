@@ -22,5 +22,7 @@ public class UpdateUserRequest {
     private String phoneNumber;
     private String profilePicture;
     private int coachId;
+    private Coach coach;
     private boolean isActive;
+    private String goal;
 }

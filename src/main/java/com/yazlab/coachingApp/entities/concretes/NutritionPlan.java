@@ -24,12 +24,18 @@ public class NutritionPlan {
     @JoinColumn(name = "user_id", referencedColumnName = "user_id", nullable = false)
     private User user;
 
-    @Column(name = "goals")
-    private String goals;
+    @Column(name = "goal")
+    private String goal;
 
-    @Column(name = "daily_meals")
-    private String dailyMeals;
+    @Column(name = "meal")
+    private String meal;
 
-    @Column(name = "calorie_target")
-    private int calorieTarget;
+    @Column(name = "meal_day")
+    private String mealDay;
+
+    @Column(name = "calorie")
+    private int calorie;
+
+    @Column(name = "is_active")
+    private boolean isActive;
 }

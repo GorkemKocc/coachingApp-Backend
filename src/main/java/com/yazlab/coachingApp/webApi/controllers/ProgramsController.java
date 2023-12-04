@@ -1,15 +1,10 @@
 package com.yazlab.coachingApp.webApi.controllers;
 
 import com.yazlab.coachingApp.business.abstracts.ProgramService;
-import com.yazlab.coachingApp.business.abstracts.UserService;
 import com.yazlab.coachingApp.business.requests.program.CreateProgramRequest;
 import com.yazlab.coachingApp.business.requests.program.UpdateProgramRequest;
-import com.yazlab.coachingApp.business.requests.user.CreateUserRequest;
-import com.yazlab.coachingApp.business.requests.user.UpdateUserRequest;
 import com.yazlab.coachingApp.business.responses.program.GetAllProgramsResponse;
-import com.yazlab.coachingApp.business.responses.program.GetByIdProgramResponse;
-import com.yazlab.coachingApp.business.responses.user.GetAllUsersResponse;
-import com.yazlab.coachingApp.business.responses.user.GetByIdUserResponse;
+import com.yazlab.coachingApp.business.responses.program.GetByUserIdProgramResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,14 +17,9 @@ import java.util.List;
 public class ProgramsController {
     private ProgramService programService;
 
-    @GetMapping("getAll")
-    public List<GetAllProgramsResponse> getAll(){
-        return programService.getAll();
-    }
-
     @GetMapping("/{id}")
-    public GetByIdProgramResponse getById(@PathVariable int id){
-        return programService.getById(id);
+    public List<GetAllProgramsResponse> getAll(int userId){
+        return programService.getAll(userId);
     }
 
     @PostMapping("add")

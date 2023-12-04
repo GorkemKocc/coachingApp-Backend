@@ -20,7 +20,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
-    private int userId;
+    private Integer userId;
 
     @Column(name = "first_name")
     private String firstName;
@@ -50,9 +50,13 @@ public class User {
     private String profilePicture;
 
     @ManyToOne
-    @JoinColumn(name = "coach_id", referencedColumnName = "coach_id")
-    private Coach coachId;
+    @JoinColumn(name = "coach", referencedColumnName = "coach_id")
+    private Coach coach;
 
     @Column(name = "is_active")
     private boolean isActive;
+
+    @Column(name = "goal")
+    private String goal;
+
    }

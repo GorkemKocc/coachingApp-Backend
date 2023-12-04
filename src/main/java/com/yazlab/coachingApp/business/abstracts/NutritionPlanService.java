@@ -8,8 +8,8 @@ import com.yazlab.coachingApp.business.responses.nutritionPlan.GetByIdNutritionP
 import java.util.List;
 
 public interface NutritionPlanService {
-    List<GetAllNutritionPlansResponse> getAll();
-    GetByIdNutritionPlanResponse getById(int id);
+    List<GetAllNutritionPlansResponse> getAll(int userId);
+   // GetByIdNutritionPlanResponse getById(int id);
     void add(CreateNutritionPlanRequest createNutritionPlanRequest);
     void update(UpdateNutritionPlanRequest updateNutritionPlanRequest);
 }

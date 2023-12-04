@@ -23,4 +23,6 @@ public class UpdateProgressRecordRequest {
     private BigDecimal muscleMass;
     private BigDecimal bodyMassIndex;
     private Date recordDate;
+    private boolean isActive;
+
 }

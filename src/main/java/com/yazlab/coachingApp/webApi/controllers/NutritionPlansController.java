@@ -17,13 +17,9 @@ import java.util.List;
 public class NutritionPlansController {
     private NutritionPlanService nutritionPlanService;
 
-    @GetMapping("getAll")
-    public List<GetAllNutritionPlansResponse> getAll(){
-        return nutritionPlanService.getAll();
-    }
     @GetMapping("/{id}")
-    public GetByIdNutritionPlanResponse getById(@PathVariable int id){
-        return nutritionPlanService.getById(id);
+    public List<GetAllNutritionPlansResponse> getAll(int userId){
+        return nutritionPlanService.getAll(userId);
     }
 
     @PostMapping("add")

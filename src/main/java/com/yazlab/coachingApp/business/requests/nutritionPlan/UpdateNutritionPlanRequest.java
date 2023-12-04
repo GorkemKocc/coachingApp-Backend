@@ -11,7 +11,9 @@ import lombok.NoArgsConstructor;
 public class UpdateNutritionPlanRequest {
     private int planId;
     private int userId;
-    private String goals;
-    private String dailyMeals;
-    private int calorieTarget;
+    private String goal;
+    private String meal;
+    private String mealDay;
+    private int calorie;
+    private boolean isActive;
 }

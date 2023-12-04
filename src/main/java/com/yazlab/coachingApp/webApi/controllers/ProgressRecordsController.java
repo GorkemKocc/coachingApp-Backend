@@ -18,12 +18,8 @@ public class ProgressRecordsController {
     private ProgressRecordService progressRecordService;
 
     @GetMapping("getAll")
-    public List<GetAllProgressRecordsResponse> getAll(){
-        return progressRecordService.getAll();
-    }
-    @GetMapping("/{id}")
-    public GetByIdProgressRecordResponse getById(@PathVariable int id){
-        return progressRecordService.getById(id);
+    public List<GetAllProgressRecordsResponse> getAll(int userId){
+        return progressRecordService.getAll(userId);
     }
 
     @PostMapping("add")

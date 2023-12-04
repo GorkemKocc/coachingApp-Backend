@@ -13,11 +13,12 @@ import java.util.Date;
 public class UpdateProgramRequest {
     private int programId;
     private int userId;
-    private String exerciseName;
-    private String goals;
+    private String exercise;
+    private String goal;
     private int sets;
-    private int repetitions;
+    private int reps;
     private String videoGuideUrl;
     private Date startDate;
-    private int duration;
+    private String duration;
+    private boolean isActive;
 }

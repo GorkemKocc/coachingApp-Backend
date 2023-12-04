@@ -7,10 +7,13 @@ import com.yazlab.coachingApp.business.responses.progressRecord.GetAllProgressRe
 import com.yazlab.coachingApp.business.responses.progressRecord.GetByIdProgressRecordResponse;
 import com.yazlab.coachingApp.core.utilities.mappers.ModelMapperService;
 import com.yazlab.coachingApp.dataAccess.abstracts.ProgressRecordRepository;
+import com.yazlab.coachingApp.dataAccess.abstracts.UserRepository;
 import com.yazlab.coachingApp.entities.concretes.ProgressRecord;
+import com.yazlab.coachingApp.entities.concretes.User;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -20,30 +23,38 @@ public class ProgressRecordManager implements ProgressRecordService {
 
     private ProgressRecordRepository progressRecordRepository;
     private ModelMapperService modelMapperService;
+    private final UserRepository userRepository;
 
     @Override
-    public List<GetAllProgressRecordsResponse> getAll() {
-        List<ProgressRecord> progressRecords = progressRecordRepository.findAll();
+    public List<GetAllProgressRecordsResponse> getAll(int userId) {
+        List<ProgressRecord> progressRecords = progressRecordRepository.findByUser_UserId(userId);
 
-        List<GetAllProgressRecordsResponse> progressRecordsResponses = progressRecords.stream()
-                .map(coach -> this.modelMapperService.forResponse()
-                        .map(coach, GetAllProgressRecordsResponse.class)).collect(Collectors.toList());
+        if (progressRecords != null) {
+            List<GetAllProgressRecordsResponse> progressRecordsResponses = progressRecords.stream()
+                    .map(coach -> this.modelMapperService.forResponse()
+                            .map(coach, GetAllProgressRecordsResponse.class)).collect(Collectors.toList());
 
-        return progressRecordsResponses;
-    }
-
-    @Override
-    public GetByIdProgressRecordResponse getById(int id) {
-        ProgressRecord progressRecord = this.progressRecordRepository.findById(id).orElseThrow();
-
-        GetByIdProgressRecordResponse progressRecordResponse = this.modelMapperService.forResponse()
-                .map(progressRecord, GetByIdProgressRecordResponse.class);
-        return progressRecordResponse;
+            return progressRecordsResponses;
+        } else {
+            return Collections.emptyList();
+        }
     }
 
     @Override
     public void add(CreateProgressRecordRequest createProgressRecordRequest) {
-        ProgressRecord progressRecord = this.modelMapperService.forRequest().map(createProgressRecordRequest,ProgressRecord.class);
+        ProgressRecord progressRecord = new ProgressRecord();
+
+        progressRecord.setBodyFatPercentage(createProgressRecordRequest.getBodyFatPercentage());
+        progressRecord.setBodyMassIndex(createProgressRecordRequest.getBodyMassIndex());
+        progressRecord.setHeight(createProgressRecordRequest.getHeight());
+        progressRecord.setWeight(createProgressRecordRequest.getWeight());
+        progressRecord.setMuscleMass(createProgressRecordRequest.getMuscleMass());
+        progressRecord.setRecordDate(createProgressRecordRequest.getRecordDate());
+        progressRecord.setActive(createProgressRecordRequest.isActive());
+
+        User user = userRepository.findById(createProgressRecordRequest.getUserId()).orElseThrow();
+        progressRecord.setUser(user);
+
         this.progressRecordRepository.save(progressRecord);
     }
 

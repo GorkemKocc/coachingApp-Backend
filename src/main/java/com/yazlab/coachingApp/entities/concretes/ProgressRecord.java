@@ -44,4 +44,7 @@ public class ProgressRecord {
 
     @Column(name = "record_date", nullable = false)
     private Date recordDate;
+
+    @Column(name = "is_active")
+    private boolean isActive;
 }

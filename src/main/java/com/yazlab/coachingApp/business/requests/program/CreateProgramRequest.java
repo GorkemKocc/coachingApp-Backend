@@ -1,9 +1,8 @@
 package com.yazlab.coachingApp.business.requests.program;
-
-import com.yazlab.coachingApp.entities.concretes.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 
 import java.util.Date;
 
@@ -12,11 +11,12 @@ import java.util.Date;
 @NoArgsConstructor
 public class CreateProgramRequest {
     private int userId;
-    private String exerciseName;
-    private String goals;
+    private String exercise;
+    private String goal;
     private int sets;
-    private int repetitions;
+    private int reps;
     private String videoGuideUrl;
     private Date startDate;
-    private int duration;
+    private String duration;
+    private boolean isActive = true;
 }
