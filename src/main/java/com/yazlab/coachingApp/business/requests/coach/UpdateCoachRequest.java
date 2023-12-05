@@ -19,7 +19,7 @@ public class UpdateCoachRequest {
     private String email;
     private String password;
     private String phoneNumber;
-    private String profilePicture;
+    private byte[] profilePicture;
     private String specialization;
     private String experience;
     private String contactInfo;
