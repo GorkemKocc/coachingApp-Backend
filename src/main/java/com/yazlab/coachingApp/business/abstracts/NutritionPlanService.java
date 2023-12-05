@@ -9,7 +9,6 @@ import java.util.List;
 
 public interface NutritionPlanService {
     List<GetAllNutritionPlansResponse> getAll(int userId);
-   // GetByIdNutritionPlanResponse getById(int id);
     void add(CreateNutritionPlanRequest createNutritionPlanRequest);
     void update(UpdateNutritionPlanRequest updateNutritionPlanRequest);
 }

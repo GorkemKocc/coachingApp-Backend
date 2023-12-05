@@ -4,7 +4,6 @@ import com.yazlab.coachingApp.business.abstracts.ProgressRecordService;
 import com.yazlab.coachingApp.business.requests.progressRecord.CreateProgressRecordRequest;
 import com.yazlab.coachingApp.business.requests.progressRecord.UpdateProgressRecordRequest;
 import com.yazlab.coachingApp.business.responses.progressRecord.GetAllProgressRecordsResponse;
-import com.yazlab.coachingApp.business.responses.progressRecord.GetByIdProgressRecordResponse;
 import com.yazlab.coachingApp.core.utilities.mappers.ModelMapperService;
 import com.yazlab.coachingApp.dataAccess.abstracts.ProgressRecordRepository;
 import com.yazlab.coachingApp.dataAccess.abstracts.UserRepository;
@@ -39,7 +38,6 @@ public class ProgressRecordManager implements ProgressRecordService {
             return Collections.emptyList();
         }
     }
-
     @Override
     public void add(CreateProgressRecordRequest createProgressRecordRequest) {
         ProgressRecord progressRecord = new ProgressRecord();

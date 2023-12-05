@@ -20,9 +20,7 @@ public class GetByIdUserResponse {
     private String email;
     private String password;
     private String phoneNumber;
-    //  private String messages;
     private byte[] profilePicture;
-//    private int coachId;
     private boolean isActive;
     private Coach coach;
     private String goal;

@@ -1,21 +1,17 @@
 package com.yazlab.coachingApp.business.concretes;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.yazlab.coachingApp.business.abstracts.ProgramService;
 import com.yazlab.coachingApp.business.requests.program.CreateProgramRequest;
 import com.yazlab.coachingApp.business.requests.program.UpdateProgramRequest;
 import com.yazlab.coachingApp.business.responses.program.GetAllProgramsResponse;
-import com.yazlab.coachingApp.business.responses.program.GetByUserIdProgramResponse;
 import com.yazlab.coachingApp.core.utilities.mappers.ModelMapperService;
 import com.yazlab.coachingApp.dataAccess.abstracts.ProgramRepository;
 import com.yazlab.coachingApp.dataAccess.abstracts.UserRepository;
-import com.yazlab.coachingApp.entities.concretes.Coach;
 import com.yazlab.coachingApp.entities.concretes.Program;
 import com.yazlab.coachingApp.entities.concretes.User;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -39,7 +35,7 @@ public class ProgramManager implements ProgramService {
 
             return programsResponses;
         } else {
-            return Collections.emptyList(); // veya başka bir uygun değer
+            return Collections.emptyList();
         }
     }
 

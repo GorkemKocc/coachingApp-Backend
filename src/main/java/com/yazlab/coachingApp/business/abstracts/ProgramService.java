@@ -9,7 +9,6 @@ import java.util.List;
 
 public interface ProgramService {
     List<GetAllProgramsResponse> getAll(int userId);
-  //  GetByUserIdProgramResponse getByUserId(int userId);
     void add(CreateProgramRequest createProgramRequest);
     void update(UpdateProgramRequest updateProgramRequest);
 }

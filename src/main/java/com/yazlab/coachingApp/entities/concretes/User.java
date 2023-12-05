@@ -43,8 +43,6 @@ public class User {
     @Column(name = "phone_number")
     private String phoneNumber;
 
-   // @Column(name = "messages", columnDefinition = "jsonb")
-    //private List<Message> messages;
 
     @Column(name = "profile_picture")
     private String profilePicture;

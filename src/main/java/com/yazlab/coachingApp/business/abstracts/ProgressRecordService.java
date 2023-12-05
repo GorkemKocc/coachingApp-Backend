@@ -9,7 +9,6 @@ import java.util.List;
 
 public interface ProgressRecordService {
     List<GetAllProgressRecordsResponse> getAll(int userId);
-   // GetByIdProgressRecordResponse getById(int id);
     void add(CreateProgressRecordRequest createProgressRecordRequest);
     void update(UpdateProgressRecordRequest updateProgressRecordRequest);
 }

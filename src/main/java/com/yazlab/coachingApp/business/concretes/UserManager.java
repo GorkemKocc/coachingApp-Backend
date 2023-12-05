@@ -10,8 +10,6 @@ import com.yazlab.coachingApp.dataAccess.abstracts.CoachRepository;
 import com.yazlab.coachingApp.dataAccess.abstracts.UserRepository;
 import com.yazlab.coachingApp.entities.concretes.Coach;
 import com.yazlab.coachingApp.entities.concretes.User;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

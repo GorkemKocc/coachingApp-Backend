@@ -23,7 +23,7 @@ public class GetAllClientsResponse {
     private String email;
     private String phoneNumber;
     private String goal;
-    //  private String messages;
+
     private String profilePicture;
     private boolean isActive;
 }

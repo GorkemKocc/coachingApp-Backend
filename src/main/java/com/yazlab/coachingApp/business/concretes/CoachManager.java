@@ -52,7 +52,7 @@ public class CoachManager implements CoachService {
     public void update(UpdateCoachRequest updateCoachRequest) {
 
         Coach coach = this.modelMapperService.forRequest().map(updateCoachRequest,Coach.class);
-        this.coachRepository.save(coach);// id varsa update yoksa insert
+        this.coachRepository.save(coach);
     }
 
     @Override

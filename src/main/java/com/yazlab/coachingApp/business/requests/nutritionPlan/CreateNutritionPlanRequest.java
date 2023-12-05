@@ -1,6 +1,5 @@
 package com.yazlab.coachingApp.business.requests.nutritionPlan;
 
-import com.yazlab.coachingApp.entities.concretes.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

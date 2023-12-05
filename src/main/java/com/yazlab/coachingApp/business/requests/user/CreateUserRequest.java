@@ -21,7 +21,6 @@ public class CreateUserRequest {
     private String phoneNumber;
     private boolean isActive = true;
     private int coachId;
-   // private Coach coach;
     private String messages;
     private String profilePicture;
     private String goal;

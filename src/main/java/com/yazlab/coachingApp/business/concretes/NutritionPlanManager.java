@@ -38,16 +38,6 @@ public class NutritionPlanManager implements NutritionPlanService {
         }
     }
 
-    /*@Override
-    public GetByIdNutritionPlanResponse getById(int id) {
-        NutritionPlan nutritionPlan = nutritionPlanRepository.findById(id).orElseThrow();
-
-        GetByIdNutritionPlanResponse response = modelMapperService.forResponse()
-                .map(nutritionPlan, GetByIdNutritionPlanResponse.class);
-
-        return response;
-    }*/
-
     @Override
     public void add(CreateNutritionPlanRequest createNutritionPlanRequest) {
 
